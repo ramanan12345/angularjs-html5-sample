@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="flame" width="500" height="500"></canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById('flame');
+    var context = canvas.getContext('2d');
+    var a = 0, b = 3;
+
+    function drawFlame() {
+        var flameHeight = 300;
+        var flameBottom = flameHeight + 20;
+
+        // prepare increment step
+        a = Math.floor(Math.random() * 18) - 9;
+        //a = a + b;
+        if (a >= 9) {
+            b = -3;
+        }
+        if (a <= -9) {
+            b = 3;
+        }
+
+        max = 2;
+        min = -2;
+
+        c = Math.floor(Math.random() * (max - min)) + min;
+
+        // clear canvas
+        //context.fillStyle = "black";
+        // context.fillRect(0, 0, 500, 500);
+        context.clearRect(0, 0, 500, 500);
+
+        // blue layer
+        context.globalAlpha = 0.2;
+        context.beginPath();
+        context.moveTo(235, flameHeight);
+        context.lineTo(250, 160);
+        context.lineTo(265, flameHeight);
+        //context.quadraticCurveTo(250, 0, 265, flameHeight);
+        //context.lineTo(250, flameBottom);
+        context.bezierCurveTo(255, 305, 250, 315, 250, flameBottom + c);
+        context.moveTo(235, flameHeight);
+        context.bezierCurveTo(245, 305, 250, 315, 250, flameBottom + c);
+
+        context.fillStyle = '#eee';
+        context.shadowColor = 'blue';
+        context.shadowBlur = 10;
+        context.shadowOffsetX = 0;
+        context.shadowOffsetY = 0;
+        context.fill();
+
+        // lightblue layer
+        context.globalAlpha = 0.9;
+        context.beginPath();
+        context.moveTo(238, flameHeight);
+        context.lineTo(250, 230 + a);
+        context.lineTo(262, flameHeight);
+//            context.quadraticCurveTo(250, 80 + a, 262, flameHeight);
+        //context.lineTo(250, flameBottom);
+        context.bezierCurveTo(265, 305, 240, 316, 250, flameBottom + c);
+        context.moveTo(238, flameHeight);
+        context.bezierCurveTo(240, 305, 250, 315, 250, flameBottom + c);
+        context.fillStyle = 'lightblue';
+        context.fill();
+
+        // white layer
+        context.globalAlpha = 0.9;
+        context.beginPath();
+        context.moveTo(240, flameHeight);
+        context.lineTo(250, 240 + a);
+        context.lineTo(260, flameHeight);
+//            context.quadraticCurveTo(250, 90 + a, 260, flameHeight);
+        //context.lineTo(250, flameBottom);
+        context.bezierCurveTo(255, 305, 250, 316, 250, flameBottom + c);
+        context.moveTo(240, flameHeight);
+        context.bezierCurveTo(255, 305, 250, 315, 250, flameBottom + c);
+        context.fillStyle = 'white';
+        context.fill();
+    }
+
+    window.setInterval('drawFlame()', 100 / 60);
+</script>
+</body>
+</html>

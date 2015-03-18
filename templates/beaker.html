@@ -1,0 +1,35 @@
+<!--<div ng-drag="true" ng-drag-data="uiData">-->
+
+	<div ng-hit-test
+	     hit-data="{connectTo: '.heater', data: uiData}"
+	     class="hittest beaker"
+		   ng-drag="canDrag"
+		   ng-drag-data="uiData"
+		 >
+		<div id="temp" class="temp" ng-show="uiData.withObj" ng-click="changeTemperature()"
+		     style="font-family: ds-digitalnormal;">0C
+		</div>
+		<canvas id="subItem" ng-show="uiData.withObj" ng-click="changeTemperature($event)" class="subItemLeftTop"></canvas>
+		<canvas id="magic" width="120" ng-class="beaker"></canvas>
+		<canvas id="bubble_{{uiData.uuid}}" class="bubble" width="110"></canvas>
+		<canvas id="steam_{{uiData.uuid}}" class="steam" width="110" ></canvas>
+
+		<audio id="audioBubbling" loop>
+			<source src="../effects/liquid+steam+bubbles/audio-bubbling.ogg" type="audio/ogg">
+			<source src="../effects/liquid+steam+bubbles/audio-bubbling.mp3" type="audio/mp3">
+		</audio>
+		<audio id="audioLiquid" loop>
+			<source src="../effects/liquid+steam+bubbles/audio-liquid.ogg" type="audio/ogg">
+			<source src="../effects/liquid+steam+bubbles/audio-liquid.mp3" type="audio/mp3">
+		</audio>
+		<audio id="audioFire" loop>
+			<!-- <source src="../effects/liquid+steam+bubbles/audio-liquid.ogg" type="audio/ogg"> -->
+			<source src="../effects/liquid+steam+bubbles/audio-fire.mp3" type="audio/mp3">
+		</audio>
+
+		<input type="hidden" id="height" value="120">
+		<input type="hidden" id="total-liquid">
+
+		<div id="cover" class="cover" ng-mousedown="canDragMouseDownHandler()" ng-mouseup="canDragMouseUpHandler()"></div>
+	</div>
+	<!--</div>-->

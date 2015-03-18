@@ -1,0 +1,124 @@
+<html ng-app="labApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/lab.css">
+    <link rel="stylesheet" href="css/tools.css"/>
+    <link rel="stylesheet" href="css/vendor/exit-popup.css"/>
+    <link rel="stylesheet" href="css/vendor/draggable-timer.css"/>
+    <link rel="stylesheet" href="css/vendor/resizable-ui.css"/>
+</head>
+<body>
+<div id="welcomeLayer" class="welcomeLayer">
+    <div class="content">
+        <div id="welcomeMsg" class="welcomeMsg">Welcome to Lab</div>
+        <div class="progress">
+            <span class="percent" id="percent"></span>
+        </div>
+    </div>
+</div>
+<div id="canvas_container" ng-controller="introController">
+    <div id="canvas_contain">
+        <canvas id="intro_stage"></canvas>
+    </div>
+</div>
+<img src="images/intro/intro.jpg" id="temp_image"/>
+
+<div class="container lab" ng-show="introComplete" ng-controller="labController" ng-init="getLabData();">
+    <div class="workspace">
+        <dashboard></dashboard>
+
+        <lab-bench data-drag-complete="dragCompleted" lab-data="labData"></lab-bench>
+
+        <light-switch status="on"></light-switch>
+
+        <lab-table table-items="tableItems" drag-timers="dragTimers" matrix="matrix"></lab-table>
+
+        <ng-biowaste-bin></ng-biowaste-bin>
+    </div>
+
+    <div class="lab-footer-bar clearfix">
+        <add-drag-timer timers="dragTimers" style="float: left;"></add-drag-timer>
+
+        <lab-timer></lab-timer>
+
+        <table-tools ng-show="tableItems && tableItems.length" table-items="tableItems" drag-timers="dragTimers" ></table-tools>
+
+        <div class="lab-manual-btn">
+            <button ng-click="show()">Manual</button>
+        </div>
+
+        <div class="zoom" ng-init="zoom();">
+            <button ng-hide="fullScreen" ng-click="launchFullscreen()">Full Screen</button>
+            <button ng-show="fullScreen" ng-click="exitFullscreen()">Exit Full Screen</button>
+            <button class="zoomIn">Zoom In</button>
+            <button class="zoomOff">Reset</button>
+            <button class="zoomOut">Zoom Out</button>
+        </div>
+    </div>
+
+    <exit-popup></exit-popup>
+
+    <div manual ng-show="introComplete"></div>
+
+    <audio id="audioTop">
+        <!-- <source src="../effects/liquid+steam+bubbles/audio-top.ogg" type="audio/ogg"> -->
+        <source src="../effects/liquid+steam+bubbles/audio-top.mp3" type="audio/mp3">
+    </audio>
+    <audio id="audioSwitch">
+        <!-- <source src="../effects/liquid+steam+bubbles/audio-switch.ogg" type="audio/ogg"> -->
+        <source src="../effects/liquid+steam+bubbles/audio-switch.mp3" type="audio/mp3">
+    </audio>
+</div>
+
+
+<!-- vendors -->
+<script src="scripts/vendors/jquery.min.js"></script>
+<script src="scripts/vendors/angular.min.js"></script>
+<script src="scripts/vendors/angular-touch.min.js"></script>
+<script src="scripts/vendors/e-smart-hittest-jquery.js"></script>
+<script src="scripts/vendors/angular-resource.min.js"></script>
+<script src="scripts/vendors/jquery-ui.min.js"></script>
+<script src="scripts/vendors/jquery.panzoom.min.js"></script>
+
+<!-- util -->
+<script src="effects/liquid+steam+bubbles/js/bubble.js"></script>
+<script src="effects/liquid+steam+bubbles/js/liquid.js"></script>
+<script src="effects/liquid+steam+bubbles/js/steam.js"></script>
+<script src="scripts/app.js"></script>
+
+<!-- controller -->
+<script src="scripts/controllers/labController.js"></script>
+<script src="scripts/controllers/introController.js"></script>
+<script src="scripts/controllers/exit-dialog.js"></script>
+<script src="scripts/controllers/popup.js"></script>
+
+
+<!-- directives -->
+<script src="scripts/directives/labDirectives.js"></script>
+<script src="scripts/directives/bench.js"></script>
+<script src="scripts/directives/material.js"></script>
+<script src="scripts/directives/instrument.js"></script>
+<script src="scripts/directives/container.js"></script>
+<script src="scripts/directives/labTable.js"></script>
+<script src="scripts/directives/trash.js"></script>
+<script src="scripts/directives/ngDraggable.js"></script>
+<script src="scripts/directives/tooltip.js"></script>
+<script src="scripts/directives/labTimer.js"></script>
+<script src="scripts/directives/tools.js"></script>
+<script src="scripts/directives/exit-popup.js"></script>
+<script src="scripts/directives/draggable-timer.js"></script>
+<script src="scripts/directives/biowaste_bin.js"></script>
+<script src="scripts/directives/hittest.js"></script>
+<script src="scripts/directives/manual.js"></script>
+<script src="scripts/directives/lightSwitch.js"></script>
+<script src="scripts/directives/beaker.js"></script>
+<script src="scripts/directives/dashboard.js"></script>
+
+<!-- services -->
+<script src="scripts/services/labServices.js"></script>
+
+</body>
+</html>

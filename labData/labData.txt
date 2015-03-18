@@ -1,0 +1,42 @@
+{
+    "labData":{
+        "name": "Prototype Lab",
+        "containers":[
+            {
+                "id":"3",
+                "name":"beaker",
+                "type":1,
+                "thumbnail":"images/lab/beaker.png",
+                "liquidTotal": 0
+            }
+        ],
+        "materials":[
+            {
+                "id":"1",
+                "name":"water",
+                "type":2,
+                "thumbnail":"images/lab/waterbottle.png"
+            },
+            {
+                "id":"2",
+                "name":"salt",
+                "type":2,
+                "thumbnail":"images/lab/saltcontainer.png"
+            }
+        ],
+        "instruments":[
+            {
+                "id":"2",
+                "name":"termometer",
+                "type":3,
+                "thumbnail":"images/lab/termometer.png"
+            },
+            {
+                "id":"3",
+                "name":"heater",
+                "type":3,
+                "thumbnail":"images/lab/heater.png"
+            }
+        ]
+    }
+}

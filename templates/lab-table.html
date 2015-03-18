@@ -1,0 +1,57 @@
+
+<div class="lab-table row" ng-drop="true"  ng-drop-success="onDropComplete($data,$event)" ng-init="hittest=false">
+    <div class="drop-item" style="width: auto"  ng-style="{left :item.x / matrix[0], top:item.y / matrix[3]}"
+         ng-repeat="item in tableItems"
+         ng-class="{toHit:((item.type == 1 || item.type == LAB_TYPES.INSTRUMENT) ? true : false)}"
+         ng-drag="true"
+         ng-drag-data="item"
+         ng-drag-success="onDragComplete($data,$event)">
+
+        <table-item item="item"></table-item>
+
+    </div>
+
+    <div id="triangle-topright" class="side-table" ng-drop="true"  ng-drop-success="onDropComplete($data,$event)"></div>
+    <div id="triangle-topleft" class="side-table" ng-drop="true"  ng-drop-success="onDropComplete($data,$event)"></div>
+
+    <drag-timer ng-repeat="timer in dragTimers" timer-data="timer"></drag-timer>
+
+    <div id="inputModal" class="modal-content table-popup hide" style="position: absolute; z-index: 3000">
+        <div class="modal-header">
+            <button ng-click="closeModal('inputModal')" type="button" class="close" data-dismiss="modal"><span
+                    aria-hidden="true">&times;</button>
+            <h3 class="modal-title">Exit Lab Configrmation</h3>
+        </div>
+
+        <div class="modal-body">
+            <span>
+                You can add up 200 mL
+            </span>
+            <form name="modal-form" action novalidate ng-submit="submit()">
+                <input type="text" name="text" ng-model="formText" only-digits/>
+                <div class="modal-footer">
+                    <button class="btn-exit-popup-ok" type="submit" value="Submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="errorModal" class="modal-content table-popup hide" style="position: absolute; z-index: 3000">
+        <div class="modal-header">
+            <button ng-click="closeModal('errorModal')" type="button" class="close" data-dismiss="modal"><span
+                    aria-hidden="true">&times;</button>
+            <h3 class="modal-title">Ooops</h3>
+        </div>
+
+        <div class="modal-body">
+            <span>
+                Materials can only be added to containers. Please refer to the Lab Manual and take an appropriate container from the Containers shelf.
+            </span>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-exit-popup-ok" ng-click="closeModal('errorModal')" value="Submit">OK</button>
+        </div>
+    </div>
+</div>
+

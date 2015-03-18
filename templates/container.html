@@ -1,0 +1,10 @@
+<div class="lab-container"
+     lab-tooltip="{{conData.name}}"
+     ng-drag-data="conData"
+     ng-drag-success="dragSuccess(conData)"
+     ng-drag="true">
+    <div ng-hit-test hit-data="{connectTo: '.heater', data: conData}" class="hittest">
+        <img class="inside-images" ng-src="{{conData.thumbnail}}">
+        <div ng-show="{{conData.groupWith}}">Group</div>
+    </div>
+</div>

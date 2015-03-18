@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/liquid.js"></script>
+  <script type="text/javascript" src="js/steam.js"></script>
+  <script type="text/javascript" src="js/bubble.js"></script>
+</head>
+<body style="background-color:#000">
+  <p id="loading"><img src="img/loading.gif">Loading</p>
+  <table id="input_area">
+    <tr>
+      <td>
+        <label style="color:white;">Total: </label>
+      </td>
+      <td>
+        <input type="text" id="total" value="200" style="width:100px;">
+        <input type="button" id="btn_view" value="View">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label style="color:white;">Height: </label>
+      </td>
+      <td>
+        <input type="text" id="height" value="60" style="width:100px;">
+        <input type="button" id="btn_height" value="View">
+      </td>
+    </tr>
+    <tr>
+      <td><label style="color:white;">Speed:</label></td>
+      <td>
+        <select id="steam_speed" disabled="disabled">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <input type="button" id="btn_speed" value="View" disabled="disabled">
+      </td>
+    </tr>
+  </table>
+  <h2 id="timer">10</h2>
+  <canvas id="magic"  width="335" height="384"></canvas>
+  <canvas id="bubble" width="300" height="500"></canvas>
+  <canvas id="steam" width="300" height="500" ></canvas>
+  <audio id="audioBubbling" loop>
+    <source src="audio-bubbling.ogg" type="audio/ogg">
+    <source src="audio-bubbling.mp3" type="audio/mp3">
+  </audio>
+  <audio id="audioLiquid" loop>
+    <source src="audio-liquid.ogg" type="audio/ogg">
+    <source src="audio-liquid.mp3" type="audio/mp3">
+  </audio>
+  <!-- <canvas id="cover"  width="335" height="384"></canvas> -->
+  <div id="cover"></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<div class="lab-bench" style="z-index: 100">
+    <!-- Tab panes -->
+    <div class="tab-content lab-tab-content">
+        <div role="tabpanel" class="tab-pane bench-container active" id="containers">
+            <lab-container con-data="container" ng-repeat="container in labData.containers"></lab-container>
+        </div>
+        <div role="tabpanel" style="display:none" class="tab-pane bench-container" id="materials">
+            <div lab-material mat-data="material" ng-repeat="material in labData.materials" style="display: inline-block"></div>
+        </div>
+        <div role="tabpanel" style="display:none"  class="tab-pane bench-container" id="instruments">
+            <div lab-instrument ins-data="instrument" ng-repeat="instrument in labData.instruments"></div>
+        </div>
+    </div>
+    <div class="bench-menues">
+        <ul class="nav nav-tabs nav-justified lab-nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#containers">Containers</a></li>
+            <li role="presentation"><a href="#materials" role="materials" >Materials</a></li>
+            <li role="presentation"><a href="#instruments" role="instruments">Instruments</a></li>
+        </ul>
+    </div>
+
+</div>

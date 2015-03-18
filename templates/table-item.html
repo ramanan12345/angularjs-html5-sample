@@ -1,0 +1,23 @@
+<!--<div id="temp" class="temp" ng-show="item.withObj" style="font-family: ds-digitalnormal;">0C</div>-->
+
+<canvas class="flame" ng-show="item.name === 'heater'" width="40" height="100"></canvas>
+<!--<canvas  id="subItem" ng-show="item.withObj" ng-click="convertTemperature()" class="subItemLeftTop"></canvas>-->
+
+<!-- Beaker with animation -->
+    <span ng-show="item.name === 'beaker'">
+        <beaker ui-data="item" ng-show="item.name === 'beaker'"></beaker>
+    </span>
+<!-- /// -->
+
+<!--
+    Item element canvas (init hit data for connection between diff objects )
+-->
+<canvas ng-hide="item.name === 'beaker'" ng-hit-test hit-data="{connectTo: '', data: item}" style="font-family: ds-digitalnormal"
+        ng-class="{
+                heater: (item.type === LAB_TYPE.INSTRUMENT ? true : false),
+            }" id="item"></canvas>
+
+<div class="heater-wheel-container" ng-show="item.name === 'heater'" ng-click="adjustFlame($event)">
+    <span class="tooltip"><span class="tooltip-title">Flame Setting</span><br/>Click here to adjust bunsen flame</span>
+    <img class="heater-wheel-smaller" ng-src="images/lab/wheel.png" />
+</div>

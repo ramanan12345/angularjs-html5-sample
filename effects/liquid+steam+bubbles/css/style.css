@@ -1,0 +1,110 @@
+
+body{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	background:#000;
+}
+
+.effect-container{
+	width:400;
+	background:#000;
+	margin:auto;
+	position:relative;
+}
+
+.background-contain{
+	width:400;
+}
+
+.background-contain img{
+	width:100%;
+	margin-top:240px;
+}
+
+.overlay-contain{
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
+#effect-stage{
+	width:400px;
+	height:400px;
+}
+
+select 
+{
+	width 	: 104px;
+}
+
+canvas
+{
+	top 	: 250px;
+	left 	: 500px;
+	position: absolute;
+}
+
+#magic 
+{
+	z-index : 10;
+}
+
+#bubble 
+{
+	z-index : 20;
+}
+
+#cover
+{
+	z-index : 30;
+}
+
+.canvas-container
+{
+	position 	: absolute !important;
+	top 	 	: 55px;
+	left 		: 553px;
+	z-index 	: 20;
+	background 	: transparent;
+}
+
+.canvas-container canvas
+{
+	left 	: 0px;
+	top 	: 0px;
+}
+
+#timer
+{
+	position 	: absolute;
+	font-size 	: 55px;
+	font-family : arial;
+	color 		: white;
+	left 		: 650px;
+	display 	: none;
+}
+
+#cover
+{
+	width 		: 335px;
+	height 		: 384px;
+	position 	: absolute;
+	z-index 	: 30;
+	left 		: 500px;
+	top 		: 284px;
+	background 	: url(../img/beaker.png) no-repeat;
+	background-size: 100% auto;
+}
+
+#loading
+{
+	display 	: none;
+	color 		: white;
+}
+
+#input_area
+{
+	/*display 	: none;*/
+}

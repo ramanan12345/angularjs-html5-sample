@@ -1,0 +1,17 @@
+.tools-container {
+    bottom: 0px;
+    right: 85px;
+    display: block;
+    position: absolute;
+}
+
+.tools-container > button[type="button"] {
+    border: 0 none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    height: 40px;
+}

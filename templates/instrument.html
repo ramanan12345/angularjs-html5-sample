@@ -1,0 +1,5 @@
+    <div ng-hit-test hit-data="{connectTo: '.beaker', data: insData}" lab-tooltip="{{insData.name}}" class="lab-instrument"
+         ng-drag-data="insData" ng-drag-success="dragSuccess(insData)" ng-drag="true">
+        <img class="inside-images" ng-src="{{insData.thumbnail}}">
+        <img class="heater-wheel" ng-src="images/lab/wheel.png" ng-show="insData.name === 'heater'"/>
+    </div>
